@@ -1,0 +1,62 @@
+Slappin this up in here so nobody needs to worry about it. 
+
+Anything roman numeral is a new idea, good luck reading!
+
+JJ highlighted 3 areas:
+Coding
+Design
+Features
+
+That's probably wrong lol but I think I'm close
+
+We have two different ideas that work nicely so far
+
+I)Two teams of two, where they each control one. 
+	-Two mini-chaos controllers that connect to a big one
+		an idea, but i think this would also be fun becuase it'd make the teams 		random at times too
+
+II) Three to four players, playing one player games
+		-Extra chaos edition "but what's that mean?"
+			Complete random order
+			Self regret to the fullest
+			A few concerned neighbors
+
+III) "But how can we ensure that each player plays at least *close* to equal parts?" 
+shut up i'm getting to that
+we got this cool thing called a struct that basically is a group of variables that could relate to a certain object - what's that look like? 
+
+struct player{
+port
+playCount
+};
+^A work in progress^
+
+Gotta check the play count of that player and if it's at a certain amount, they're skipped becuase they're assholes for hogging the game
+
+Want to make sure the chaos controller doesn't get to play back-to-back-to-back-to-back? yea me neither let's fix that
+
+IV) What kind of features do we want in this bad boy? 
+	((CRITICAL)) The most important? Tiny 64 plugged into the expansion slot
+	Might be some files out tehre already for the expension slot shell, we can 	probably just build off of that and find some kind of pop culture 64 3d print map 	thing and then modify that to house our electronics or something, i don' tknow 	i'm not a wizard
+
+V) We might be able to jump off the 64's power supply, reduce the need of a plug
+For reference, looking directly at the plug, the top corners slanted
+3|2|1
+6|5|4
+1,4,5-> ground
+2,3  -> 3.3v, 2.7A
+6    -> 12V, 0.8A
+
+Might want to see what amperage we need to power the arduino
+Last i remember, the controllers were 3.3v? Wouldn't want to fry the arduino/controllers
+
+VI) A knob to determine what settings there are
+Dingus idea: why not have all preset options then a last option that lets you check out your custom webapp options?
+
+VII) VIInal VIIntasy VII
+
+VIII) I can't remember anything else sorry
+
+
+
+	
