@@ -1,0 +1,345 @@
+vv
+
+//- Key Code
+
+int RELAY1 = 8;                        
+int RELAY2 = 9;                       
+int RELAY3 = 10;                      
+int RELAY4 = 11;
+
+int pastRelay = 8;
+int nextRelay = 8;
+
+const int activeBuzzer = 7;
+
+void setup() {    
+  pinMode(RELAY1, OUTPUT);       
+  pinMode(RELAY2, OUTPUT);
+  pinMode(RELAY3, OUTPUT);
+  pinMode(RELAY4, OUTPUT);
+  pinMode(activeBuzzer, OUTPUT);
+  digitalWrite(RELAY1,HIGH);          // Turns Relay Off
+  digitalWrite(RELAY2,HIGH);          // Turns Relay Off
+  digitalWrite(RELAY3,HIGH);          // Turns Relay Off
+  digitalWrite(RELAY4,HIGH);          // Turns Relay Off
+}
+   void beepbeep(){ // Zelda tune (Note, frequency): G (3135.96), F# (2959.96), D# (2489.02), A (1760), G# (1661.22), E (2637.02), G# (3322.44), C (4186.01) IN 7 RANGE
+    //Buzz          // FF7 Victory Fanfare         : C (1046.5), C (1046.5), C (1046.5), C (1046.5), G# (830.609), A# (932.328), C (1046.5), A# (932.328), C (1046.5) I WANT 6 RANGE 
+   tone(activeBuzzer, 1046.5);
+   delay(90);
+   noTone(activeBuzzer);
+   delay(52.5);
+   tone(activeBuzzer, 1046.5);
+   delay(90);
+   noTone(activeBuzzer);
+   delay(52.5);
+   tone(activeBuzzer, 1046.5);
+   delay(90);
+   noTone(activeBuzzer);
+   delay(35);
+   tone(activeBuzzer, 1046.5);
+   delay(290);
+   noTone(activeBuzzer);
+   delay(65);
+   tone(activeBuzzer, 830.609);
+   delay(215);
+   noTone(activeBuzzer);
+   delay(90);
+   tone(activeBuzzer, 932.328); //Buzzyboi on becuase method start turns off buzzer
+   delay(215);
+   noTone(activeBuzzer);
+   delay(90);
+   tone(activeBuzzer, 1046.5);
+   delay(90);
+   noTone(activeBuzzer);
+   delay(115);
+   tone(activeBuzzer, 932.328);
+   delay(105);
+   noTone(activeBuzzer);
+   delay(50);
+   tone(activeBuzzer, 1046.5);
+   delay(365);
+   noTone(activeBuzzer);
+   delay(65);
+//   digitalWrite(activeBuzzer,HIGH);    //Turn on active buzzer
+//   delay(400);
+//   digitalWrite(activeBuzzer,LOW);    //Turn on active buzzer
+//   delay(200);
+//   digitalWrite(activeBuzzer,HIGH);    //Turn on active buzzer
+//   delay(200);
+//   digitalWrite(activeBuzzer,LOW);    //Turn on active buzzer
+//   delay(200);
+//   digitalWrite(activeBuzzer,HIGH);    //Turn on active buzzer
+//   delay(100);
+//   digitalWrite(activeBuzzer,LOW);    //Turn on active buzzer
+//   delay(100);
+//   digitalWrite(activeBuzzer,HIGH);    //Turn on active buzzer
+//   delay(100);
+//   digitalWrite(activeBuzzer,LOW);    //Turn on active buzzer
+//   delay(100);
+//   digitalWrite(activeBuzzer,HIGH);    //Turn on active buzzer
+//   delay(100);
+//   digitalWrite(activeBuzzer,LOW);    //Turn on active buzzer
+//   delay(100);
+//   digitalWrite(activeBuzzer,HIGH);    //Turn on active buzzer
+//   delay(100);
+//   digitalWrite(activeBuzzer,LOW);    //Turn on active buzzer
+//   delay(100);
+//   digitalWrite(activeBuzzer,HIGH);    //Turn on active buzzer
+//   delay(100);
+     
+   }
+      void zeldaBeep() { //^G6 1567.98 vG5 783.991 C 1046.5 E 1318.51 D# 1244.51 vG ^B6 vB5 ^A6 vA5 E ^A ^G C D E ^A C F ^A ^Ab C E F E vG C E D vA B D
+    tone(activeBuzzer, (1567.98/2)); //G6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (783.991/2));  //G5
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1046.5/2)); //C6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1318.51/2)); //E6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1244.51/2)); //D6#
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (783.991/2)); //G5
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1975.53/2)); //B6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (987.767/2)); //B5
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1760/2)); //A6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, 440); //A5
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1318.51/2)); //E6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1760/2)); //A6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1567.98/2)); //G6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1046.5/2)); //C6 
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1174.66/2)); //D6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1318.51/2)); //E6 first measure
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1760/2)); //A6
+    delay(131.25); //16
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (880/2)); //A5
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1396.91/2)); //F6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1760/2)); //A6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1661.22/2)); //A6b
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1046.5/2)); //C6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1174.66/2)); //D6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1396.91/2)); //F6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1318.51/2)); //E6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (783.991/2)); //G5
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1046.5/2)); //C6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1318.51/2)); //E6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1174.66/2)); //D6
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (880/2)); //A5
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (987.767/2)); //B5
+    delay(131.25);
+    noTone(activeBuzzer);
+    delay(50);
+    tone(activeBuzzer, (1174.66/2)); //D6 end of second measure
+    delay(131.25);
+    noTone(activeBuzzer);
+//    tone(activeBuzzer, 1567.98); 
+//    delay(100);
+//    noTone(activeBuzzer);
+//    delay(100);
+//    tone(activeBuzzer, 1567.98);
+//    delay(100);
+//    noTone(activeBuzzer);
+//    delay(100);
+//    tone(activeBuzzer, 1567.98);
+//    delay(100);
+//    noTone(activeBuzzer);
+//    delay(100);
+//    tone(activeBuzzer, 1567.98);
+//    delay(100);
+//    noTone(activeBuzzer);
+//    delay(100);
+    
+    
+   }
+
+ void loop() {
+  
+    digitalWrite(activeBuzzer,LOW);
+    delay(100);
+
+    
+   // Find random number 0-100
+   int rando = rand() % 100 + 1;
+
+   // Do nothing if > 60
+   if (rando > 95){ //A Bb B C 
+    //a (880) e (1318.51) d (1174.66) e (1318.51) g (1567.98) e (1318.51)
+    //e e d e g e
+//       zeldaBeep(); zeldabeep is 4200 ms long
+       digitalWrite(RELAY4, LOW);
+       digitalWrite(pastRelay, HIGH);
+       pastRelay = 11;
+       delay(2380); //adjust this delay to make it 4200 ms, adding the delays below
+       tone(activeBuzzer, 1318.51);
+       delay(300);
+       noTone(activeBuzzer);
+       delay(20);
+       tone(activeBuzzer, 1318.51);
+       delay(300);
+       noTone(activeBuzzer);
+       delay(20);
+       tone(activeBuzzer, 1174.66);
+       delay(150);
+       noTone(activeBuzzer);
+       delay(40);
+       tone(activeBuzzer, 1318.51);
+       delay(250);
+       noTone(activeBuzzer);
+       delay(20);
+       tone(activeBuzzer, 1567.98);
+       delay(400);
+       noTone(activeBuzzer);
+       delay(20);
+       tone(activeBuzzer, 1318.51);
+       delay(300);
+       noTone(activeBuzzer);
+//       tone(activeBuzzer, 880); This is Zelda "get item" tune
+//       delay(250);
+//       noTone(activeBuzzer);
+//       delay(10);
+//       tone(activeBuzzer, 932.328);
+//       delay(250);
+//       noTone(activeBuzzer);
+//       delay(10);
+//       tone(activeBuzzer, 987.767);
+//       delay(150);
+//       noTone(activeBuzzer);
+//       delay(20);
+//       tone(activeBuzzer, 1046.50);
+//       delay(800);
+//       noTone(activeBuzzer);
+       
+//       digitalWrite(activeBuzzer,LOW);    //Turn on active buzzer
+//       delay(100);
+//       digitalWrite(activeBuzzer,HIGH);    //Turn on active buzzer
+//       delay(100);
+//       digitalWrite(activeBuzzer,LOW);    //Turn on active buzzer
+//       delay(100);
+//       digitalWrite(activeBuzzer,HIGH);    //Turn on active buzzer
+//       delay(100);
+   } else {
+    // Turn off the pastRelay and turn on the nextRelay
+    digitalWrite(pastRelay, HIGH);
+    digitalWrite(nextRelay, LOW);
+    
+    // Set pastRelay and increment nextRelay
+    pastRelay = nextRelay;
+    nextRelay++;
+    
+//     if nextRelay > 10, set nextRelay = 8
+    if (nextRelay > 10) {
+      nextRelay = 8;
+    }
+    // Wait for one minute
+  //delay(10000);
+    delay(58095);
+    beepbeep();
+   
+//   digitalWrite(activeBuzzer,LOW);    //Turn on active buzzer
+//   delay(50);
+//   digitalWrite(activeBuzzer,HIGH);    //Turn on active buzzer
+//   delay(25);
+   }
+
+//   digitalWrite(RELAY1,LOW);           // Turns ON Relays 1
+//   delay(60000);                        // Wait 60 seconds
+//   digitalWrite(RELAY1,HIGH);          // Turns Relay Off
+//   digitalWrite(RELAY2,LOW);           // Turns ON Relays 2
+//   delay(60000);                        // Wait 60 seconds
+//   digitalWrite(RELAY2,HIGH);          // Turns Relay Off
+//   digitalWrite(RELAY3,LOW);           // Turns ON Relays 3
+//   delay(60000);                        // Wait 60 seconds
+//   digitalWrite(RELAY3,HIGH);          // Turns Relay Off
+
+//   digitalWrite(RELAY4,LOW);         // Turns ON Relays 4
+//   delay(60000);                      // Wait 60 seconds
+//   digitalWrite(RELAY4,HIGH);        // Turns Relay Off        
+
+}
+
+  
